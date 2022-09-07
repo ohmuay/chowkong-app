@@ -9,7 +9,6 @@ RUN yarn build
 
 FROM node:16-alpine
 WORKDIR /app
-RUN mkdir .next
 COPY --from=builder /app/.next /app/.next
 COPY --from=builder /app/package.json /app/package.json
 ENV NODE_ENV=production

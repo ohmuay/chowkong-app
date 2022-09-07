@@ -9,7 +9,6 @@ RUN yarn build
 
 FROM node:16-alpine
 WORKDIR /app
-RUN mkdir .next
 COPY --from=builder /app/build /app/build
 COPY --from=builder /app/public /app/public
 COPY --from=builder /app/package.json /app/package.json
