@@ -10,6 +10,7 @@ module.exports = ({ env }) => ({
       user: env("DATABASE_USERNAME"),
       password: env("DATABASE_PASSWORD"),
       ssl: {
+        rejectUnauthorized: env.bool("DATABASE_SSL_SELF"),
         ca: fs.readFileSync(`${__dirname}/ca-certificate.crt`).toString(),
       },
     },
