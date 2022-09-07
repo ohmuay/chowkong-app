@@ -1,8 +1,8 @@
-ARG JENKINS_HOME
-ARG JOB_NAME
-
 # Base on offical NGINX Alpine image
 FROM nginx:alpine
+
+ARG JENKINS_HOME
+ARG JOB_NAME
 
 # Remove any existing config files
 RUN rm /etc/nginx/conf.d/*
