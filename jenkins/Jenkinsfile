@@ -1,28 +1,33 @@
 pipeline {
     agent any
+
+    environment {
+        SCRIPT_PATH = "${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/scripts"
+    }
+
     stages {
 
         stage('Testing'){
             steps {
                 // run script to run test
-                sh 'chmod +x ./scripts/test.sh'
-                sh './scripts/test.sh'
+                sh "chmod +x ${SCRIPT_PATH}/test.sh"
+                sh "${SCRIPT_PATH}/test.sh"
             }
         }
 
         stage('Building'){
             steps {
                 // run script docker build
-                sh 'chmod +x ./scripts/build.sh'
-                sh './scripts/build.sh'
+                sh "chmod +x ${SCRIPT_PATH}/build.sh"
+                sh "${SCRIPT_PATH}/build.sh"
             }
         }
 
         stage('Deploying') {
             steps {
                 // run compose up with no build
-                 sh 'chmod +x ./scripts/deploy.sh'
-                sh './scripts/deploy.sh'
+                sh "chmod +x ${SCRIPT_PATH}/deploy.sh"
+                sh "${SCRIPT_PATH}/deploy.sh"
             }
         }
     }
