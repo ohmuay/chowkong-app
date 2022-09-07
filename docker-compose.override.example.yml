@@ -1,0 +1,39 @@
+version: '3.3'
+services:
+
+  nginx:
+    build:
+      dockerfile: Dockerfile.dev
+      context: nginx
+    
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: client/
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+
+  backend:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: backend/
+    container_name: backend
+    depends_on:
+      - postgres
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    env_file:
+      - env/backend.env
+
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+      - ./postgres_dev_data:/var/lib/postgresql/data
+    env_file:
+      - env/postgres.env
+
+
+  
