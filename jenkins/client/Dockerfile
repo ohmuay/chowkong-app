@@ -4,9 +4,9 @@ ARG JENKINS_HOME
 ARG JOB_NAME
 
 WORKDIR /app
-COPY $JENKINS_HOME/workspace/$JOB_NAME/client/package.json .
+COPY /$JENKINS_HOME/workspace/$JOB_NAME/client/package.json .
 RUN yarn
-COPY $JENKINS_HOME/workspace/$JOB_NAME/client .
+COPY /$JENKINS_HOME/workspace/$JOB_NAME/client .
 RUN NODE_ENV=production yarn build
 
 
