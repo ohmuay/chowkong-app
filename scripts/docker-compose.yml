@@ -1,0 +1,27 @@
+version: '3.3'
+services:
+
+  nginx:
+    restart: always
+    image: chowkong_nginx
+    container_name: nginx
+    depends_on:
+      - client
+      - backend
+    ports:
+      - "80:80"
+    
+  client:
+    image: chowkong_client
+    container_name: client
+    env_file:
+      - env/client.env
+
+  backend:
+    image: chowkong_backend
+    container_name: backend
+    env_file:
+      - env/backend.env
+
+
+  

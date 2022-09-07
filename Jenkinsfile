@@ -1,9 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Example') {
+
+        stage('Testing'){
             steps {
-                sh 'docker-compose up -d --build'
+                // run script to run test
+                sh './scripts/client/test.sh'
+            }
+        }
+
+        stage('Building'){
+            steps {
+                // run script docker build
+                sh './scripts/client/build.sh'
+            }
+        }
+
+        stage('Deploying') {
+            steps {
+                // run compose up with no build
+                sh './scripts/client/deploy.sh'
             }
         }
     }
