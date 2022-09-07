@@ -1,8 +1,8 @@
 FROM node:16-alpine as builder
 WORKDIR /app
-COPY package.json .
+COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/client/package.json .
 RUN yarn
-COPY . .
+COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/client .
 RUN NODE_ENV=production yarn build
 
 
