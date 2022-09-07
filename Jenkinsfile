@@ -5,21 +5,21 @@ pipeline {
         stage('Testing'){
             steps {
                 // run script to run test
-                sh './scripts/client/test.sh'
+                sh './scripts/test.sh'
             }
         }
 
         stage('Building'){
             steps {
                 // run script docker build
-                sh './scripts/client/build.sh'
+                sh './scripts/build.sh'
             }
         }
 
         stage('Deploying') {
             steps {
                 // run compose up with no build
-                sh './scripts/client/deploy.sh'
+                sh './scripts/deploy.sh'
             }
         }
     }
