@@ -1,7 +1,7 @@
 #!/bin/bash
 
-docker build -t chowkong_client --no-cache --build-arg JOB_NAME=${JOB_NAME} --build-arg JENKINS_HOME=${JENKINS_HOME} -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/client/Dockerfile .
+docker build -t chowkong_client --no-cache -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/client/Dockerfile ${JENKINS_HOME}/workspace/${JOB_NAME}/client
 
-docker build -t chowkong_backend --no-cache --build-arg JOB_NAME=${JOB_NAME} --build-arg JENKINS_HOME=${JENKINS_HOME} -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/backend/Dockerfile .
+docker build -t chowkong_backend --no-cache -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/backend/Dockerfile ${JENKINS_HOME}/workspace/${JOB_NAME}/backend
 
-docker build -t chowkong_nginx --no-cache --build-arg JOB_NAME=${JOB_NAME} --build-arg JENKINS_HOME=${JENKINS_HOME} -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/nginx/Dockerfile .
+docker build -t chowkong_nginx --no-cache -f ${JENKINS_HOME}/workspace/${JOB_NAME}/jenkins/nginx/Dockerfile ${JENKINS_HOME}/workspace/${JOB_NAME}/nginx
