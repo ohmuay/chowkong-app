@@ -3,6 +3,8 @@ FROM nginx:alpine
 
 ARG JENKINS_HOME
 ARG JOB_NAME
+ENV JENKINS_HOME ${JENKINS_HOME}
+ENV JOB_NAME ${JOB_NAME}
 
 # Remove any existing config files
 RUN rm /etc/nginx/conf.d/*
