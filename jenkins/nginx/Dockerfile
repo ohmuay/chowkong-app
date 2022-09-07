@@ -1,3 +1,6 @@
+ARG JENKINS_HOME
+ARG JOB_NAME
+
 # Base on offical NGINX Alpine image
 FROM nginx:alpine
 

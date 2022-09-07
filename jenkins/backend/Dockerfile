@@ -1,3 +1,7 @@
+ARG JENKINS_HOME
+ARG JOB_NAME
+
+
 FROM node:16-alpine
 WORKDIR /app
 COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/backend/package.json .

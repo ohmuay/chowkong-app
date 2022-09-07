@@ -1,3 +1,6 @@
+ARG JENKINS_HOME
+ARG JOB_NAME
+
 FROM node:16-alpine as builder
 WORKDIR /app
 COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/client/package.json .
