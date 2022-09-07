@@ -5,6 +5,7 @@ pipeline {
         stage('Testing'){
             steps {
                 // run script to run test
+                sh 'chmod -x ./scripts/test.sh'
                 sh './scripts/test.sh'
             }
         }
@@ -12,6 +13,7 @@ pipeline {
         stage('Building'){
             steps {
                 // run script docker build
+                sh 'chmod -x ./scripts/build.sh'
                 sh './scripts/build.sh'
             }
         }
@@ -19,6 +21,7 @@ pipeline {
         stage('Deploying') {
             steps {
                 // run compose up with no build
+                 sh 'chmod -x ./scripts/deploy.sh'
                 sh './scripts/deploy.sh'
             }
         }
