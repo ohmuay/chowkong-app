@@ -2,13 +2,11 @@ FROM node:16-alpine as builder
 
 ARG JENKINS_HOME
 ARG JOB_NAME
-ENV JENKINS_HOME ${JENKINS_HOME}
-ENV JOB_NAME ${JOB_NAME}
 
 WORKDIR /app
-COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/client/package.json .
+COPY $JENKINS_HOME/workspace/$JOB_NAME/client/package.json .
 RUN yarn
-COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/client .
+COPY $JENKINS_HOME/workspace/$JOB_NAME/client .
 RUN NODE_ENV=production yarn build
 
 

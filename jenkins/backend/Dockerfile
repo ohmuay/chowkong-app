@@ -2,12 +2,10 @@ FROM node:16-alpine
 
 ARG JENKINS_HOME
 ARG JOB_NAME
-ENV JENKINS_HOME ${JENKINS_HOME}
-ENV JOB_NAME ${JOB_NAME}
 
 WORKDIR /app
-COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/backend/package.json .
+COPY $JENKINS_HOME/workspace/$JOB_NAME/backend/package.json .
 RUN yarn
-COPY ${JENKINS_HOME}/workspace/${JOB_NAME}/backend .
+COPY $JENKINS_HOME/workspace/$JOB_NAME/backend .
 RUN NODE_ENV=production yarn build
 CMD ["yarn","start"]
