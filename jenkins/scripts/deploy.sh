@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker-compose down --remove-orphans --rmi all
+docker-compose -f docker-compose-prod.yml down --remove-orphans --rmi all
 
-docker-compose up -d --remove-orphans
+docker-compose -f docker-compose-prod.yml up -d --remove-orphans
