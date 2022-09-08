@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set +e
+
 echo '''
 *************************************
 ******** Building Test Image ********
@@ -13,7 +16,7 @@ echo '''
 *************************************
 '''
 
-docker run chowkong_client-test || true
+docker run chowkong_client-test
 
 echo '''
 *************************************
