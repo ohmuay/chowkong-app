@@ -1,8 +1,8 @@
 FROM node:16-alpine as builder
 WORKDIR /app
 COPY package.json .
-ENV NODE_ENV=production
 RUN yarn
+ENV NODE_ENV=production
 COPY . .
 RUN NODE_ENV=${NODE_ENV} yarn build
 
