@@ -13,7 +13,7 @@ echo '''
 *************************************
 '''
 
-docker run chowkong_client-test
+docker run chowkong_client-test || true
 
 echo '''
 *************************************
