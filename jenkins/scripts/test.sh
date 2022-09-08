@@ -21,4 +21,4 @@ echo '''
 *************************************
 '''
 
-docker rmi chowkong_client-test
+docker rmi chowkong_client-test -f
