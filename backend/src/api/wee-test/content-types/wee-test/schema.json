@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wee_tests",
+  "info": {
+    "singularName": "wee-test",
+    "pluralName": "wee-tests",
+    "displayName": "wee_test"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "yesnaja": {
+      "type": "boolean"
+    }
+  }
+}
